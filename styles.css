@@ -1,3 +1,7 @@
+body {
+  margin: 0px;
+}
+
 /* Tekst som bytter farge */
 .changing-color {
   /*
@@ -8,6 +12,8 @@
   animation-duration: 1s; /* Hvor lang tid den skal bruke */
   animation-iteration-count: infinite; /* Hvor mange ganger den skal repeteres */
   animation-direction: alternate; /* Kjør animasjone fremlengs, så baklengs, repeter */
+
+  color: coral;
 }
 
 /*
@@ -27,6 +33,10 @@
   }
 }
 
+.changing-color:hover {
+  animation-play-state: paused;
+}
+
 /* Bouncing ball */
 .container {
   height: 500px;
@@ -42,10 +52,10 @@
   margin-right: auto;
 
   animation-name: bouncing-ball;
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
   animation-direction: alternate;
-  animation-timing-function: linear;
 }
 
 @keyframes bouncing-ball {
@@ -53,7 +63,74 @@
     transform: translateY(50px);
   }
 
-  100% {
-    transform: translateY(200px);
+  95% {
+    transform: translateY(400px);
+    height: 50px;
+    width: 50px;
   }
+
+  100% {
+    transform: translateY(410px);
+    height: 40px;
+    width: 60px;
+  }
+}
+
+/* Styling for Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(154, 189, 255);
+  padding: 0.1rem 1rem;
+}
+
+.navbar > nav > ul {
+  list-style-type: none;
+  padding: 0px;
+  display: flex;
+  gap: 1rem;
+}
+
+/* Slide in */
+.slidin-from-left {
+  animation-name: slidin-from-left;
+  animation-duration: 1s;
+}
+
+@keyframes slidin-from-left {
+  from {
+    transform: translateX(-100vw);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+.slidin-from-right {
+  animation-name: slidin-from-right;
+  animation-duration: 1s;
+}
+
+@keyframes slidin-from-right {
+  from {
+    transform: translateX(100vw);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+/* Overganger */
+.scale {
+  transition-property: all;
+  transition-duration: 200ms;
+}
+
+.scale:hover {
+  scale: 1.1;
+}
+
+.scale:active {
+  scale: 0.9;
 }
